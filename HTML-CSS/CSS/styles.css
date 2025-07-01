@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@400..700&display=swap');
+:root{
+    --primary-color:#fa7c14;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: gray !important;
+    background-image: url(../assets/images/background-adare-restaurant.jpg);
+    background-size: cover;
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    text-align: center;
+}
+
+/* header */
+.container .header{
+    text-align: center;
+    height: 20vh;
+}
+
+/* img logo */
+.container .header .img-container{
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container .header .img-container .img-logo{
+    height: 10vh;
+}
+
+/* Navbar */
+.container .header .navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    margin: 0 auto;
+    font-family: "Dancing Script", cursive;
+}
+
+.container .header .navbar .nav-item{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: all 0.4s ease;
+}
+.container .header .navbar .nav-item:hover{
+    /* uso de animaciones con @keyframes --- animation: navItemHover 0.3s forwards; */
+    color: var(--primary-color);
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+/* uso de @keyframes 
+@keyframes navItemHover{
+    to{
+        color: var(--primary-color);
+    font-size: 1.4em;
+    text-decoration: underline;
+    }
+} */
+
+/* Main Content */
+.container .main-container{
+    margin-top: 5vh;
+}
+
+.container .main-container .main-text-container{
+    color: white;
+    padding: 2rem;
+}
+/* texto en grande */
+.container .main-container .main-text-container .main-text{
+    font-family:"Edu NSW ACT Hand Pre", cursive; 
+    font-size: 3em;
+    transition:all 0.5s;
+}
+
+.container .main-container .main-text-container .main-text:hover{
+    text-shadow: 0.07em 0.07em var(--primary-color);
+}
+.container .main-container .main-text-container article{
+    margin: 0 auto;
+    max-width: 40vw;
+}
+
+.container .main-container .main-text-container article p{
+    color: rgb(165, 154, 154);
+    font-family: cursive;
+    font-size: 1em;
+}
+/* =============
+main-content Enlace"a"========== */
+.container .main-container .main-text-container article p strong a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.05em 0.05em var(--primary-color);
+}
+/* =============
+main-content Maps========== */
+.container .main-container .maps-container .maps{
+    max-height: 60vh;
+    max-width: 90vw;
+}
+
+/* footer */
+.container .footer h4{
+    font-family: inherit;
+    font-size: 1em;
+    color: white;
+}
