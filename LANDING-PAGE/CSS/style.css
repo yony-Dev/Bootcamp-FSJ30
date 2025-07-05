@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+ 
+h2{
+    font-family: "Ubuntu", sans-serif;
+}
+
+p{
+     font-family: "Roboto", sans-serif;
+}
+/* Logo */
+.logo {
+  height: 50px;
+}
+
+/* Imagenes uniformes */
+.img-uniform {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+/* Intro text */
+.intro-text {
+  max-width: 800px;
+  font-size: 1rem;
+}
+
+/* Tarjetas promocionales */
+.promo-card {
+  overflow: hidden;
+}
