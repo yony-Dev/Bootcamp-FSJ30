@@ -7,16 +7,58 @@ h2{
 p{
      font-family: "Roboto", sans-serif;
 }
+
 /* Logo */
 .logo {
-  height: 50px;
+  max-height: 40px;
+  height: auto;
+  width: auto;
 }
 
-/* Imagenes uniformes */
+/* navegacion de la pagina principal */
+/* Enlaces del nav */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #550603 !important; /* Amarillo Bootstrap */
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 0;
+  height: 2px;
+  background-color: #790e0a;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+@media (max-width: 373px) {
+    .navegacion-enlaces{
+      justify-content: center;
+    }
+}
+/* Imagenes */
 .img-uniform {
   object-fit: cover;
   height: 200px;
   width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.img-uniform:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Intro text */
@@ -28,4 +70,18 @@ p{
 /* Tarjetas promocionales */
 .promo-card {
   overflow: hidden;
+}
+
+/* Centrando enlaces de contactos */
+
+@media (max-width: 249px) {
+    .centrar-enlaces{
+  justify-content: center;
+}
+}
+
+@media (max-width: 249px) {
+    .boton-enviar{
+      width: 100%;
+    }
 }
