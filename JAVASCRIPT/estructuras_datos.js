@@ -95,3 +95,125 @@ programador1.correr()
 //Pilares que no se pueden utilizar en java script
 //Encapsulamiento -> Limitar el acceso a la imformacion de una clase
 //Abstraccion -> nos da herramientas o metodos para imformacion limitada o encapsulada
+
+
+//ARRAYS
+//Array indexado -> Ordena el indice 0 en adelante
+let arraysitoIdx = [18,19,25,33];
+
+console.log(arraysitoIdx[0]);
+
+//"Array asociativo" -> guardamos en clave valor
+let arrayAsociativo ={
+    nombre:"Yony"
+}
+console.log(arrayAsociativo['nombre']);
+
+//Array multidimensional
+//Creamos con varias dimensiones (Array dentro de otro array)
+let arraycitoMulti = [ [1,2], [{nombre: "Yony"}]];
+console.log(arraycitoMulti[0]);
+
+//Accedemos a la posicion 0 -> Es la primera del array
+let cajaDeIndiceCero = arraycitoMulti[0];
+console.log(cajaDeIndiceCero[1]);
+
+//Accedemos a la posicion 1
+let cajaIndiceUno = arraycitoMulti[1];
+//Accedemos a la caja para poder ver su contenido
+console.log(cajaIndiceUno[0]);
+
+//estos console.log muestran el nombre
+console.log(cajaIndiceUno[0].nombre);
+console.log(arraycitoMulti[1][0].nombre);
+
+
+//Metodos para arrays 
+//Recorrer arrays
+
+let nombres = ["Darwin", "Luz", "Alejandra", "Kevin" ];
+//dar vueltas al array
+let nombresAlReves = nombres.reverse();
+
+//ForEach -> Recorrer el arrays y nos deja utilizar, la posicion y el indice del array
+nombres.forEach((value, index) => {
+    console.log(index);
+    console.log(value);   
+})
+
+// for(let nombre of nombres){
+//     console.log(nombre);   
+// }
+
+// Metodos utiles
+// Map -> Recorre el valor y nos retorna algo por cada posicion -> transformar valores
+
+let nombres2 = ["Darwin", "Luz", "Alejandra", "Kevin" ];
+
+let nombresMayus = nombres2.map((value)=>{
+    return value.toUpperCase();
+});
+console.log(nombresMayus);
+
+let numeritos = [1,2,3,4,]
+
+let numeritosPorDos = numeritos.map((value)=>{
+    return value*2
+})
+console.log(numeritosPorDos);
+
+
+//ForeEach que reciba el array completo
+
+let arrayNum = [1,2,3,4,6];
+
+arrayNum.forEach((value,index,array)=>{
+    arrayNum.pop();
+    console.log(array);   
+});
+
+
+//Filtrar informacion
+//Filter -> Filtramos la info y la retornamos en base a una condicion
+
+const usuarios = [{
+    nombre: "Yony",
+    edad: 19
+},{
+    nombre: "Alex",
+    edad: 20
+},{
+    nombre: "Joan",
+    edad: 17
+}];
+const mayoresDe18 = usuarios.filter((value) => {return value.edad > 18})
+console.log(mayoresDe18);
+
+//Find => buscamos y retornamos un solo dato
+const usuarioAlex = usuarios.find(usuario => usuario.nombre === "Alex");
+console.log(usuarioAlex);
+
+
+//Metodos OBLIGATORIOS
+let array = [];
+//Agregar datos al array al final
+array.push(2);
+
+//Agregar datos al array al inicio
+array.unshift(1);
+
+
+//Eliminar datos del array al final
+array.pop();
+//Eliminar datos del array al principio
+array.shift()
+
+console.log(array);
+
+//Obtener el largo de un array
+let largor = array.length;
+console.log("Holiwis". length);
+
+//Metodo para eliminar los espacios en un String
+let sinEspacios = "Holiwis Yony  ".trim();
+console.log(sinEspacios.length);
