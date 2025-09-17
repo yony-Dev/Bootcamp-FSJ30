@@ -105,5 +105,91 @@ echo "El nuevo nombre es: ".$persona1->getNombre()."\n";
 echo "La nueva edad es: ".$persona1->getEdad()."\n";
 
 //LIFO - stack -> LAST IN FIRST OUT = ULTIMO EN ENTRAR, PRIMERO EN SALIR
+
+class Stack {
+    private $data;
+    //constructor con parametros opcionales
+    public function __construct($dataParams = []) {
+        $this->data = $dataParams;
+    }
+
+    //metodos para agregar elementos
+    function add($element) {
+        array_push($this->data, $element);
+    }
+    //metodo para eliminar elementos
+    function remove() {
+        return array_pop($this->data);
+    }
+}
+$satcksito = new Stack([1,2,3,4]);
 //FIFO - queue -> FIRST IN FIRST OUT = PRIMERO EN ENTRAR, PRIMERO EN SALIR
+
+
+class Queue {
+    private $data;
+    //constructor con parametros opcionales
+    public function __construct($dataParams = []) {
+        $this->data = $dataParams;
+    }
+
+    //metodos para agregar elementos
+    function add($element) {
+        array_push($this->data, $element);
+    }
+    //metodo para eliminar elementos
+    function remove() {
+        return array_shift($this->data);
+    }
+}
+$colasita = new Queue([1,2,3,4]);
+
+//================================================
+//lista enlazadas
+class Node{
+    private $value;
+    private $next;
+    public function __construct($valueParam) {
+        $this->value = $valueParam;
+        $this->next = null;
+    }
+    public function getValue() {
+        return $this->value;
+    }
+    public function getNext() {
+        return $this->next;
+    }
+    public function setNext($nextParam) {
+        $this->next = $nextParam;
+    }
+
+} 
+class LinkedList{
+    private $head;
+    public function __construct() {
+        $this->head = null;
+    }
+    function add($value){
+        //crear un nuevo nodo
+        $newNode = new Node($value);
+
+        if ($this->head === null) {
+            $this->head = $newNode;
+        } else {
+            $current = $this->head;
+            //recorrer la lista mientras el siguiente no sea nulo
+            while ($current->getNext() !== null) {
+                $current = $current->getNext();
+
+            }
+            //cuando se llega al final de la lista, enlazar el nuevo nodo
+            $current->setNext($newNode);
+        }
+    }
+}
+$listita = new LinkedList();
+$listita->add(3);
+$listita->add(1);
+$listita->add(5);
+print_r($listita);
 ?>
