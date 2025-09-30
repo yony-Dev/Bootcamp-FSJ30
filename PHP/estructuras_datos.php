@@ -192,4 +192,115 @@ $listita->add(3);
 $listita->add(1);
 $listita->add(5);
 print_r($listita);
+
+//================================================
+// ARBOLES BINARIOS DE BUSQUEDA
+class Nodo {
+    private $valor;
+    private $izq;
+    private $der;
+
+    function __construct($valorParam) {
+        $this->valor = $valorParam;
+        $this->izq = null;
+        $this->der = null;
+    }
+
+    // Getters
+    function getValor() {
+        return $this->valor;
+    }
+    function getIzq() {
+        return $this->izq;
+    }
+    function getDer() {
+        return $this->der;
+    }
+
+    // Setters
+    function setValor($data) {
+        $this->valor = $data;
+    }
+    function setIzq($data) {
+        $this->izq = $data;
+    }
+    function setDer($data) {
+        $this->der = $data;
+    }
+}
+
+class ArbolBinario {
+    private $raiz;
+
+    function __construct($data = null) {
+        $this->raiz = $data;
+    }
+
+    function agregar($data) {
+        $nuevoNodo = new Nodo($data);
+
+        if ($this->raiz === null) {
+            $this->raiz = $nuevoNodo;
+            return $this->raiz;
+        }
+
+        $auxiliar = $this->raiz;
+
+        while (true) {
+            if ($nuevoNodo->getValor() > $auxiliar->getValor()) {
+                if($auxiliar->getDer() === null){
+                $auxiliar->setDer($nuevoNodo);
+                return $nuevoNodo;
+                }else{
+                $auxiliar = $auxiliar->getDer();
+                }
+            }else {
+                if ($auxiliar->getIzq() === null){
+                    $auxiliar->setIzq($nuevoNodo);
+                    return $nuevoNodo;
+                }else{
+                    $auxiliar->getIzq();
+                }
+            }
+        }
+    }
+    //Funcion para encontrar un dato. Devolver un mensaje si el dato existe
+function encontrar($data){
+    if ($this->raiz === null) {
+        return "El árbol está vacío";
+    }
+
+    $current = $this->raiz;
+
+    while ($current !== null) {
+        if ($current->getValor() == $data) {
+            return "Dato encontrado: {$data}";
+        } elseif ($data < $current->getValor()) {
+            $current = $current->getIzq();
+        } else {
+            $current = $current->getDer();
+        }
+    }
+
+    return "El dato {$data} no existe";
+}
+
+
+
+    //Funcion para eliminar un dato existente
+}
+
+// Prueba
+$nNodo = new Nodo(10);
+$arbolito = new ArbolBinario($nNodo);
+
+$arbolito->agregar(17);
+$arbolito->agregar(13);
+print_r($arbolito);
+
+$arbolVacio= new ArbolBinario();
+echo $arbolito->encontrar(13); 
+echo "\n";
+echo $arbolito->encontrar(20);
+
 ?>
