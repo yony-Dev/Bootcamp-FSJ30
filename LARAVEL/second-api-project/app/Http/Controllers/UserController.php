@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -56,8 +57,13 @@ class UserController extends Controller
         if(Auth::attempt($credentials)){
             //Si las credenciales funcionaron obtenemos el usuario
             $user = $request->user();
+
+            $expirationTimeToken = Carbon::now()->addMinutes(30);
+            //establecemos la expiracion del token
+            
+
             //generamos un token de acceso para el usuario
-            $token = $user->createToken('auth_token')->plainTextToken;
+            $token = $user->createToken('auth_token', ['server:update'])->plainTextToken;
             return response()->json([
                 'message' => 'Login successful',
                 'user' => $user,
@@ -65,5 +71,16 @@ class UserController extends Controller
                 'status' => 200
                 ],200);
         }
+    }
+    public function logout(Request $request){
+        //eliminamos el token de acceso del usuario autenticado
+        $user = $request->user();
+        //Revocamos el token actual, esto hace que el token ya no sea valido y el usuario tenga que iniciar sesion de nuevo
+        $user-> currentAccessToken()->delete();
+        
+        return response()->json([
+            'message' => 'Logout successful',
+            'status' => 200
+            ],200);
     }
 }
